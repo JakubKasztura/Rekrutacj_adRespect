@@ -1,0 +1,32 @@
+// Colors
+
+$creamBgc: #dcc1ab;
+$darkFont: #111111;
+$lightFont: #f5f0ec;
+$basicGreen: #1b5b31;
+$greenBoxShadow: hsla(154, 59%, 51%, 0.4);
+$grayBoxShadow: hsla(0, 0%, 39%, 0.4);
+$grayBorder: hsla(0, 0%, 39%, 0.15);
+$grayFocusInputs: hsla(0, 0%, 39%, 0.6);
+
+//Font size
+
+$fontSize: 16px;
+
+//Font family
+$fontFamilyInter: "Inter", sans-serif;
+$fontFamilyMont: "Montserrat", sans-serif;
+
+//Font Inter Weights:400, 500
+//Font Montserrat Weight: 500
+
+//Mobile padding value
+$mobilePadding: 12px;
+
+// Media, breakpoints
+$xXSmall: 375px;
+$small: 576px;
+$medium: 768px;
+$large: 992px;
+$xLarge: 1200px;
+$xXLarge: 1400px;

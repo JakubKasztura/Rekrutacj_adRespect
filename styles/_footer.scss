@@ -1,0 +1,50 @@
+.contact {
+  background-color: $darkFont;
+  font-family: $fontFamilyInter;
+  color: $lightFont;
+  //   border: 1px solid black;
+  width: 100vw;
+  padding: $mobilePadding;
+  font-size: 12px;
+  &__info {
+    @include flexContainer(column, center, center);
+    font-size: 16px;
+
+    // border: 1px solid red;
+    .contact__text {
+      margin: 20px 0 10px;
+      text-align: center;
+    }
+    .contact__btn {
+      background-color: $basicGreen;
+      color: $lightFont;
+    }
+  }
+  &__links {
+    @include flexContainer(row, space-between, center);
+    // border: 1px solid blue;
+    margin: 20px 0;
+    &-list {
+      list-style: none;
+      .contact__list-item {
+        .contact__link {
+          text-decoration: none;
+          color: $lightFont;
+        }
+      }
+    }
+    .contact__data {
+      text-align: right;
+      align-self: flex-end;
+    }
+  }
+  &__company {
+    @include flexContainer(row, center, center);
+    flex-wrap: wrap;
+    row-gap: 10px;
+    // border: 1px solid green;
+    .contact__dev-info {
+      @include flexContainer(row, center, center);
+    }
+  }
+}

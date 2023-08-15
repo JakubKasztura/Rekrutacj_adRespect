@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GiardDesign</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css"
+    />
+
+    <link rel="stylesheet" href="styles/style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <nav class="nav">
+        <div class="nav__logo-container">
+          <img
+            src="images/giarddesign.webp"
+            alt="giarddesign logo, giard text bolded design plain text"
+            class="nav__logo"
+          />
+        </div>
+        <div class="nav__hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link">Oferta</a>
+            <span class="lnr lnr-chevron-down"></span>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link">O firmie</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link">Realizacje</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link">Kontakt</a>
+          </li>
+          <li class="nav__item">
+            <div class="nav__search-container">
+              <input type="text" class="nav__input nav__input--disabled" />
+              <span class="lnr lnr-magnifier"></span>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <header class="hero">
+        <div class="hero__content">
+          <h1 class="hero__title">Nowoczesna aranżacja Twojego ogrodu</h1>
+          <p class="hero__info">
+            Marka GiardDesign to wieloletnie doświadczenie i wysoka estetyka
+            realizacji. Oferujemy kompleksowy zakres usług z indywidualnym
+            podejściem do każdego projektu.
+          </p>
+          <div class="hero__buttons-container">
+            <button class="hero__btn-contact btn">Skontakuj się z nami</button>
+            <button class="hero__btn-realizations btn">
+              Zobacz nasze realizacje <span class="lnr lnr-arrow-down"></span>
+            </button>
+          </div>
+        </div>
+        <div class="hero__image-container">
+          <img
+            src="images/image_hero.webp"
+            alt="Modern design graphic, green grass maze, white floor, rectangular shapes"
+            class="hero__image"
+          />
+          <div class="hero__arrows">
+            <span class="lnr lnr-arrow-left"></span>
+            <span class="lnr lnr-arrow-right"></span>
+          </div>
+        </div>
+      </header>
+      <main class="main-container">
+        <section class="offer">
+          <div class="offer__info">
+            <p class="offer__nav-title section__nav-title">Oferta</p>
+            <h2 class="offer__title section__title">
+              Działamy <span>kompleksowo</span>
+            </h2>
+            <p class="offer__info-text">
+              Oferujemy kompletną obsługę inwestycji terenów zielonych.
+              Projektujemy nowoczesne ogrody przydomowe oraz rezydencjonalne.
+              Stworzymy dla Ciebie projekt, zwizualizujemy go i wcielimy w
+              życie, a na każdym etapie posłużymy radą i wieloletnim
+              doświadczeniem.
+            </p>
+          </div>
+          <div class="offer__cards">
+            <div class="card">
+              <div class="card__image-container">
+                <img
+                  src="images/icon_projects.webp"
+                  alt="pencil with star in black and white colors"
+                  class="card__image"
+                />
+              </div>
+              <h3 class="card__title">Projekty</h3>
+              <p class="card__info">
+                Zaprojektujemy Twój ogród w nowoczesnym stylu i z najlepszym
+                wykorzystaniem istniejącej przestrzeni.
+              </p>
+              <button class="card__button">
+                Dowiedz się więcej<span
+                  class="card__button-arrow lnr lnr-arrow-right"
+                ></span>
+              </button>
+            </div>
+            <div class="card">
+              <div class="card__image-container">
+                <img
+                  src="images/icon_visualizations.webp"
+                  alt="fisheye with star inside in black and white colors"
+                  class="card__image"
+                />
+              </div>
+              <h3 class="card__title">Wizualizacje</h3>
+              <p class="card__info">
+                Przedstawimy Ci projekty koncepcyjne w postaci wirtualnego
+                spaceru animowanego w technologii 3D.
+              </p>
+              <button class="card__button">
+                Dowiedz się więcej<span
+                  class="card__button-arrow lnr lnr-arrow-right"
+                ></span>
+              </button>
+            </div>
+            <div class="card">
+              <div class="card__image-container">
+                <img
+                  src="images/icon_realizations.webp"
+                  alt=""
+                  class="card__image"
+                />
+              </div>
+              <h3 class="card__title">Realizacje</h3>
+              <p class="card__info">
+                Zrealizujemy Twoje marzenie przy użyciu najnowszych rozwiązań i
+                zaawansowanych technologii.
+              </p>
+              <button class="card__button">
+                Zobacz nasze realizacje<span
+                  class="card__button-arrow lnr lnr-arrow-right"
+                ></span>
+              </button>
+            </div>
+          </div>
+        </section>
+        <section class="about">
+          <div class="about__image-container">
+            <img
+              src="images/image_passion.webp"
+              alt="house with wodden terrace in the forest, stone fence, small stones river with moss on the sides, japanese style"
+              class="about__image"
+            />
+          </div>
+          <div class="about__info">
+            <p class="about__nav-title section__nav-title">O firmie</p>
+            <h2 class="about__title section__title">
+              Tworzymy z <span>pasją</span>
+            </h2>
+            <p class="about__info-text">
+              Każdy projekt to nowe wyzwanie. Dlatego nasz zespół tworzą
+              wykwalifikowani projektanci oraz architekci, których zadaniem jest
+              rozpoznanie i realizacja potrzeb każdego Klienta. Nasza
+              specjalizacja to przestrzenie nowoczesne, które charakteryzuje
+              minimalizm, geometria i elegancka prostota. Tworzymy ogrody
+              małoobsługowe, dostosowane do współczesnego trybu życia.
+            </p>
+            <button class="about__btn btn">
+              Poznaj nas bliżej<span
+                class="about__button-arrow lnr lnr-arrow-right"
+              ></span>
+            </button>
+          </div>
+        </section>
+        <section class="realizations">
+          <div class="realizations__info">
+            <p class="realizations__nav-title section__nav-title">Realizacje</p>
+            <h2 class="realizations__title section__title">
+              Nasze <span>projekty</span>
+            </h2>
+          </div>
+          <div class="realizations__gallery"></div>
+          <button class="realizations__btn btn">
+            Rozwiń <span class="about__button-arrow lnr lnr-arrow-down"></span>
+          </button>
+        </section>
+        <section class="instagram">
+          <h3 class="instagram__info">
+            Zostańmy w kontakcie!<br />Znajdziesz nas na
+            <span>Instagramie.</span>
+          </h3>
+          <div class="instagram__follow">
+            <p class="instagram__follow-text">
+              Śledź nasze najnowsze realizacje!
+            </p>
+            <button class="instagram__btn btn">Instagram</button>
+          </div>
+        </section>
+      </main>
+      <footer class="contact">
+        <div class="contact__info">
+          <div class="contact__logo">
+            <img
+              src="images/giarddesign.webp"
+              alt="giarddesign logo, giard text bolded design plain text"
+              class="logo"
+            />
+          </div>
+          <p class="contact__text">Daj znać, co możemy dla Ciebie zrobić!</p>
+          <button class="contact__btn btn">Skontaktuj się z nami</button>
+        </div>
+        <div class="contact__links">
+          <ul class="contact__links-list">
+            <li class="contact__list-item">
+              <a href="#" class="contact__link">Kontakt</a>
+            </li>
+            <li class="contact__list-item">
+              <a href="#" class="contact__link">Instagram</a>
+            </li>
+            <li class="contact__list-item">
+              <a href="#" class="contact__link">Facebook</a>
+            </li>
+            <li class="contact__list-item">
+              <a href="#" class="contact__link">LinkedIn</a>
+            </li>
+          </ul>
+          <div class="contact__data">
+            <p class="contact__number">000-000-000</p>
+            <p class="contact__email">giarddesign@kontakt.pl</p>
+          </div>
+        </div>
+        <div class="contact__company">
+          <p class="contact__rights">Prawa zastrzeżone &copy 2022</p>
+          <div class="contact__dev-info">
+            <p>made by</p>
+            <div class="contact__dev-logo-container">
+              <img
+                src="images/adRespect_logo.webp"
+                alt="Developer logo, white text with small blue icon on the left side "
+                class="dev-logo"
+              />
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>

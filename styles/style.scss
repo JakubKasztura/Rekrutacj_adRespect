@@ -1,0 +1,22 @@
+@import "variables";
+@import "mixins";
+@import "wrapper";
+@import "nav";
+@import "header";
+@import "main";
+@import "footer"; //standard style reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+//global buttons configuration
+
+.btn {
+  padding: 10px 14px;
+  border-radius: 20px;
+  border: none;
+  font-family: $fontFamilyInter;
+  cursor: pointer;
+}

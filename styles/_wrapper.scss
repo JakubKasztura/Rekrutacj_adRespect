@@ -1,0 +1,5 @@
+.wrapper {
+  @include flexContainer(column, center, center);
+  //   padding: 12px;
+  //   overflow: hidden;
+}

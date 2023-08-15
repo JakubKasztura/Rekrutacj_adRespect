@@ -1,0 +1,59 @@
+.hero {
+  &__content {
+    padding: $mobilePadding;
+    background-color: $creamBgc;
+    color: $darkFont;
+
+    .hero__title {
+      margin-top: 16px;
+      font-family: $fontFamilyMont;
+      font-weight: 500;
+    }
+    .hero__info {
+      margin: 20px 0;
+      font-family: $fontFamilyInter;
+      width: 100%;
+    }
+    .hero__buttons-container {
+      @include flexContainer(column, space-between, center);
+      gap: 16px;
+      .hero__btn-contact {
+        background-color: $basicGreen;
+        color: $lightFont;
+      }
+      .hero__btn-realizations {
+        background-color: transparent;
+        border: 1px solid $basicGreen;
+        color: $basicGreen;
+        .lnr-arrow-down {
+          color: $basicGreen;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+  &__image-container {
+    position: relative;
+    overflow: hidden;
+
+    .hero__image {
+      width: 100%;
+      transform: scale(1.03);
+    }
+    .hero__arrows {
+      @include flexContainer(row, space-evenly, center);
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 30%;
+      height: 15%;
+      background-color: $lightFont;
+    }
+    .lnr {
+      font-size: 20px;
+      font-weight: 600;
+      color: #000;
+      cursor: pointer;
+    }
+  }
+}
