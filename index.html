@@ -35,8 +35,17 @@
         </div>
         <ul class="nav__list">
           <li class="nav__item">
-            <a class="nav__link">Oferta</a>
-            <span class="lnr lnr-chevron-down"></span>
+            <a class="nav__link"
+              >Oferta<span class="lnr lnr-chevron-down"></span
+            ></a>
+            <div class="offer-container">
+              <div class="offer1">
+                <span class="lnr lnr-chevron-right"></span> Projekty
+              </div>
+              <div class="offer2">
+                <span class="lnr lnr-chevron-right"></span> Wizualizacje
+              </div>
+            </div>
           </li>
           <li class="nav__item">
             <a class="nav__link">O firmie</a>
@@ -49,7 +58,11 @@
           </li>
           <li class="nav__item">
             <div class="nav__search-container">
-              <input type="text" class="nav__input nav__input--disabled" />
+              <input
+                type="text"
+                class="nav__input"
+                placeholder="Czego szukasz?"
+              />
               <span class="lnr lnr-magnifier"></span>
             </div>
           </li>
@@ -214,13 +227,15 @@
         <div class="contact__info">
           <div class="contact__logo">
             <img
-              src="images/giarddesign.webp"
+              src="images/giarddesign_footer.webp"
               alt="giarddesign logo, giard text bolded design plain text"
               class="logo"
             />
           </div>
-          <p class="contact__text">Daj znać, co możemy dla Ciebie zrobić!</p>
-          <button class="contact__btn btn">Skontaktuj się z nami</button>
+          <div class="contact__text-container">
+            <p class="contact__text">Daj znać, co możemy dla Ciebie zrobić!</p>
+            <button class="contact__btn btn">Skontaktuj się z nami</button>
+          </div>
         </div>
         <div class="contact__links">
           <ul class="contact__links-list">

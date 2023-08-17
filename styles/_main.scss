@@ -155,7 +155,249 @@
       }
     }
   }
-  .offer > div {
-    margin: 16px 0 20px;
+}
+.offer > div {
+  margin: 16px 0 20px;
+}
+
+@media (min-width: $small) {
+  .main-container {
+    .offer {
+      &__cards {
+        @include flexContainer(column, center, center);
+        .card {
+          width: 70%;
+        }
+      }
+    }
+    .about {
+      &__info {
+        padding: calc(3 * $mobilePadding) $mobilePadding;
+      }
+      &__image-container {
+        width: 100%;
+        overflow: hidden;
+        .about__image {
+          width: 100%;
+          transform: scale(1.03);
+        }
+      }
+    }
+    // .realizations {
+    //   position: relative;
+    //   background-color: $creamBgc;
+    //   &__info {
+    //     padding: $mobilePadding;
+    //   }
+    //   &__gallery {
+    //     height: 400px;
+    //   }
+    //   &__gallery::after {
+    //     display: block;
+    //     content: "";
+    //     height: 100%;
+    //     width: 100%;
+    //     background-image: linear-gradient($creamBgc, #f88418);
+    //   }
+    //   &__btn {
+    //     position: absolute;
+    //     bottom: 30px;
+    //     left: 50%;
+    //     transform: translateX(-50%);
+    //     background-color: transparent;
+    //     border: 1px solid $darkFont;
+    //   }
+    // }
+    .instagram {
+      @include flexContainer(row, center, flex-start);
+      padding: calc(6 * $mobilePadding) $mobilePadding;
+      &__follow {
+        margin: 0;
+        flex-basis: 40%;
+      }
+    }
+  }
+}
+@media (min-width: $medium) {
+  .main-container {
+    .offer {
+      &__cards {
+        @include flexContainer(column, center, center);
+        .card {
+          max-width: 55%;
+        }
+      }
+    }
+    .about {
+      height: 50vw;
+      @include flexContainer(row, center, center);
+      &__image-container {
+        flex-basis: 50%;
+        height: 100%;
+        .about__image {
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      &__info {
+        @include flexContainer(column, center, flex-start);
+        flex-basis: 50%;
+        height: 100%;
+        padding: calc(2 * $mobilePadding) calc(3 * $mobilePadding);
+      }
+    }
+    .instagram {
+      margin-left: auto;
+      margin-right: auto;
+      width: 80%;
+    }
+  }
+}
+@media (min-width: $large) {
+  .main-container {
+    .offer,
+    .about,
+    .realizations {
+      .section__title {
+        font-size: 32px;
+      }
+    }
+    .offer {
+      padding-bottom: 120px;
+      &__info {
+        margin: 60px auto;
+        width: 70%;
+      }
+      &__cards {
+        @include flexContainer(row, center, center);
+        gap: 40px;
+        .card {
+          width: 27%;
+          padding-top: 40px;
+          padding-bottom: 40px;
+          &__image-container {
+            width: 38px;
+            height: 38px;
+          }
+          &__title {
+            font-size: 24px;
+            margin-top: 28px;
+          }
+          &__info {
+            font-size: 14px;
+          }
+          &__button {
+            margin: 38px 0 0;
+          }
+        }
+      }
+    }
+    .about {
+      &__info {
+        padding-left: calc(8 * $mobilePadding);
+      }
+      &__info-text {
+        margin: 30px 0;
+      }
+    }
+    .instagram {
+      align-items: center;
+      margin-top: 26px;
+      padding: 90px 60px;
+
+      &__info {
+        font-size: 30px;
+      }
+      &__follow {
+        margin: 0 auto;
+        text-align: center;
+        &-text {
+          font-size: 12px;
+        }
+        .instagram__btn {
+          margin-top: 14px;
+          background-color: $lightFont;
+          color: $basicGreen;
+        }
+      }
+    }
+  }
+}
+@media (min-width: $xXLarge) {
+  .main-container {
+    .offer,
+    .about,
+    .realizations {
+      .section__title {
+        font-size: 48px;
+      }
+    }
+    .offer {
+      padding-bottom: 120px;
+      &__info {
+        margin: 94px auto 96px 15%;
+        width: 50%;
+      }
+      &__cards {
+        gap: 64px;
+        .card {
+          padding-top: 48px;
+          padding-bottom: 48px;
+          &__image-container {
+            width: 40px;
+            height: 40px;
+          }
+          &__title {
+            font-size: 28px;
+            margin-top: 32px;
+            margin-bottom: 12px;
+          }
+
+          &__button {
+            margin: 50px 0 0;
+          }
+        }
+      }
+    }
+    .about {
+      height: 40vw;
+      &__info {
+        padding-left: calc(8 * $mobilePadding);
+        padding-right: 110px;
+        &-text {
+          margin: 28px 0 72px;
+        }
+        .about__btn {
+          padding-top: 13px;
+          padding-bottom: 13px;
+          font-size: 16px;
+          span {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+    .instagram {
+      padding: 120px 110px;
+      margin-top: 60px;
+      margin-bottom: 36px;
+      justify-content: space-around;
+
+      &__info {
+        font-size: 40px;
+      }
+      &__follow {
+        text-align: left;
+        flex-basis: 18%;
+        margin: 0;
+        &-text {
+          font-size: 16px;
+        }
+        .instagram__btn {
+          padding-top: 12px;
+          padding-bottom: 12px;
+        }
+      }
+    }
   }
 }

@@ -4,3 +4,9 @@
   justify-content: $justifyContent;
   align-items: $alignItems;
 }
+@mixin inlineFlexContainer($flexDirection, $justifyContent, $alignItems) {
+  display: inline-flex;
+  flex-direction: $flexDirection;
+  justify-content: $justifyContent;
+  align-items: $alignItems;
+}

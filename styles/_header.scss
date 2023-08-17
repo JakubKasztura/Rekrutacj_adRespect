@@ -25,6 +25,7 @@
         background-color: transparent;
         border: 1px solid $basicGreen;
         color: $basicGreen;
+        box-shadow: 0 1px 1px $basicGreen;
         .lnr-arrow-down {
           color: $basicGreen;
           font-weight: 500;
@@ -54,6 +55,91 @@
       font-weight: 600;
       color: #000;
       cursor: pointer;
+    }
+  }
+}
+
+@media (min-width: $small) {
+  .hero {
+    &__content {
+      padding: $mobilePadding (2 * $mobilePadding);
+      .hero__title {
+        margin-top: 32px;
+      }
+      .hero__info {
+        margin: 40px 0;
+      }
+      .hero__buttons-container {
+        @include flexContainer(row, space-evenly, center);
+        margin-bottom: 20px;
+      }
+    }
+    &__image-container {
+      .lnr {
+        font-size: 24px;
+      }
+    }
+  }
+}
+@media (min-width: $medium) {
+  .hero {
+    @include flexContainer(row, center, center);
+    height: 60vw;
+    &__content {
+      @include flexContainer(column, center, flex-start);
+      height: 100%;
+      flex-basis: 50%;
+      .hero__title {
+        font-size: 2.5em;
+      }
+      .hero__info {
+        margin: 50px 0;
+        width: 100%;
+      }
+      .hero__buttons-container {
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+    &__image-container {
+      flex-basis: 50%;
+      height: 100%;
+      .hero__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .lnr {
+        font-size: 26px;
+      }
+    }
+  }
+}
+@media (min-width: $xXLarge) {
+  .hero {
+    height: 45vw;
+
+    &__content {
+      padding-left: 60px;
+      padding-right: 130px;
+      .hero__title {
+        font-size: 60px;
+      }
+
+      .hero__buttons-container {
+        width: 100%;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 30px;
+        .hero__btn-contact {
+          padding: 16px 24px;
+          border-radius: 32px;
+        }
+        .hero__btn-realizations {
+          padding: 12px 32px;
+          border-radius: 32px;
+        }
+      }
     }
   }
 }
