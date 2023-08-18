@@ -3,7 +3,7 @@
   position: sticky;
   top: 0;
   z-index: 5;
-  width: 100vw;
+  width: 100%;
   padding: $mobilePadding;
   background-color: #fff;
   &__logo-container {
@@ -136,6 +136,9 @@
         // border-radius: 10px;
         width: 80%;
       }
+      .lnr-magnifier {
+        cursor: pointer;
+      }
       .lnr-magnifier:hover {
         color: #ebca12;
       }
@@ -175,6 +178,93 @@
       .nav__search-container {
         .nav__input {
           font-size: 20px;
+        }
+      }
+    }
+  }
+}
+@media (min-width: $xLarge) {
+  .nav {
+    padding: 10px 50px;
+    &__hamburger {
+      display: none;
+    }
+    &__list {
+      all: unset;
+      @include flexContainer(row, center, center);
+      gap: 40px;
+      list-style: none;
+      font-family: "Inter", sans-serif;
+      padding: 12px;
+      color: #111;
+      .nav__search-container {
+        position: relative;
+
+        .nav__input {
+          position: absolute;
+          top: 140%;
+          right: 0;
+          opacity: 1;
+          height: 220%;
+          border: 0px solid rgba(47, 47, 47, 0.6);
+        }
+        .nav__input.active {
+          border: 1px solid rgba(47, 47, 47, 0.6);
+          width: 350px;
+        }
+        .nav__input:focus {
+          border-color: #ebca12;
+          outline: 1.5px solid #ebca12;
+        }
+      }
+      .nav__item:nth-child(1) {
+        position: relative;
+        @include flexContainer(column, center, flex-start);
+        a {
+          @include flexContainer(row, flex-start, center);
+          gap: 5px;
+        }
+        .offer-container {
+          @include flexContainer(column, center, flex-start);
+          position: absolute;
+          top: 120%;
+          left: 0;
+          height: 0;
+          background-color: #fff;
+          padding: 0;
+          gap: 10px;
+          overflow: hidden;
+          transition: 0.3s;
+          // display: block;
+        }
+        .offer-container.active {
+          @include flexContainer(column, center, flex-start);
+          height: 100px;
+          padding: 0 20px 0 10px;
+        }
+        .offer1,
+        .offer2 {
+          @include inlineFlexContainer(row, flex-start, center);
+          // display: none;
+          gap: 4px;
+          margin: 5px 0 8px 10px;
+          font-size: 14px;
+          transition: transform 0.5s;
+          transform: translateX(-150%);
+        }
+
+        .offer1.active,
+        .offer2.active {
+          transform: translateX(0);
+
+          span {
+            font-size: 10px;
+          }
+        }
+        .offer1:hover,
+        .offer2:hover {
+          color: #ebca12;
+          cursor: pointer;
         }
       }
     }

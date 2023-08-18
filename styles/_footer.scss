@@ -3,7 +3,7 @@
   font-family: $fontFamilyInter;
   color: $lightFont;
   //   border: 1px solid black;
-  width: 100vw;
+  width: 100%;
   padding: $mobilePadding;
   font-size: 12px;
   &__info {
@@ -114,7 +114,7 @@
     }
   }
 }
-@media (min-width: $xXLarge) {
+@media (min-width: $xLarge) {
   .contact {
     font-size: 14px;
     padding-top: 80px;

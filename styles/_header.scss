@@ -98,7 +98,9 @@
       }
       .hero__buttons-container {
         width: 100%;
-        justify-content: space-between;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 20px;
       }
     }
     &__image-container {
@@ -115,21 +117,16 @@
     }
   }
 }
-@media (min-width: $xXLarge) {
+@media (min-width: $xLarge) {
   .hero {
-    height: 45vw;
-
     &__content {
-      padding-left: 60px;
-      padding-right: 130px;
+      padding-left: 40px;
+      padding-right: 100px;
       .hero__title {
-        font-size: 60px;
+        font-size: 50px;
       }
 
       .hero__buttons-container {
-        width: 100%;
-        justify-content: flex-start;
-        align-items: flex-start;
         gap: 30px;
         .hero__btn-contact {
           padding: 16px 24px;
@@ -139,6 +136,19 @@
           padding: 12px 32px;
           border-radius: 32px;
         }
+      }
+    }
+  }
+}
+@media (min-width: $xXLarge) {
+  .hero {
+    height: 45vw;
+
+    &__content {
+      padding-left: 60px;
+      padding-right: 130px;
+      .hero__title {
+        font-size: 60px;
       }
     }
   }
