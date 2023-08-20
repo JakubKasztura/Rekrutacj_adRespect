@@ -90,7 +90,6 @@
       .offer1,
       .offer2 {
         @include inlineFlexContainer(row, flex-start, center);
-        // display: none;
         gap: 4px;
         margin: 5px 0 8px 10px;
         font-size: 14px;
@@ -100,7 +99,6 @@
 
       .offer1.active,
       .offer2.active {
-        display: block;
         transform: translateX(0);
 
         span {
@@ -251,6 +249,9 @@
           font-size: 14px;
           transition: transform 0.5s;
           transform: translateX(-150%);
+        }
+        .offer2 {
+          transition: transform 0.5s 0.2s;
         }
 
         .offer1.active,

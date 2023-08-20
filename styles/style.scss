@@ -5,6 +5,7 @@
 @import "header";
 @import "main";
 @import "footer";
+@import "simple-lightbox";
 //standard style reset
 * {
   margin: 0;
@@ -20,6 +21,10 @@
   border: none;
   font-family: $fontFamilyInter;
   cursor: pointer;
+  transition: 0.3s;
+}
+.btn:hover:not(.realizations__btn) {
+  transform: scale(1.08);
 }
 @media (min-width: $xXLarge) {
   .btn {

@@ -1,4 +1,3 @@
-// Hamburger action
 const HAMBURGER_CONTAINER = document.querySelector(".nav__hamburger"),
   HAMBURGER_ELEMENTS = [...HAMBURGER_CONTAINER.querySelectorAll("span")],
   NAVIGATION_LIST = document.querySelector(".nav__list"),
@@ -7,8 +6,13 @@ const HAMBURGER_CONTAINER = document.querySelector(".nav__hamburger"),
   ),
   SEARCH_CONTAINER = document.querySelector(".nav__search-container"),
   SEARCH_LOOP = SEARCH_CONTAINER.querySelector(".lnr-magnifier"),
-  SEARCH_INPUT = SEARCH_CONTAINER.querySelector(".nav__input");
+  SEARCH_INPUT = SEARCH_CONTAINER.querySelector(".nav__input"),
+  GALLERY_CONTAINER = document.querySelector(".realizations__gallery"),
+  EXPAND_GALLERY_BTN = document.querySelector(".realizations__btn"),
+  GALLERY_OVERLAY = document.querySelector(".realizations__gallery-overlay"),
+  GALLERY_HIDDEN_ELEMENTS = [...GALLERY_CONTAINER.querySelectorAll(".hidden")];
 
+// Hamburger action
 function toggleMenu() {
   HAMBURGER_CONTAINER.classList.toggle("active");
   NAVIGATION_LIST.classList.toggle("active");
@@ -37,6 +41,9 @@ function initMenu(e) {
 }
 
 function hideMenu(e) {
+  if (window.innerWidth >= 1024) {
+    return;
+  }
   e.stopPropagation();
   if (e.target.classList == "blur-active") {
     toggleMenu();
@@ -87,3 +94,36 @@ SEARCH_LOOP.addEventListener("click", showSearchBar);
 MENU_OFFER_ELEMENT.addEventListener("click", showHideOffer);
 HAMBURGER_CONTAINER.addEventListener("click", initMenu);
 window.addEventListener("click", hideMenu);
+//Macy.JS init
+const macyInstance = new Macy({
+  container: ".realizations__gallery",
+  trueOrder: false,
+  waitForImages: false,
+  margin: 20,
+  columns: 3,
+  breakAt: {
+    480: 2,
+    330: 1,
+  },
+});
+
+//SimpleLightbox init
+const lightbox = new SimpleLightbox(".realizations__gallery a", {});
+//Expand gallery
+function expandGallery() {
+  GALLERY_OVERLAY.classList.toggle("hide");
+  EXPAND_GALLERY_BTN.classList.toggle("expanded");
+  if (EXPAND_GALLERY_BTN.classList.contains("expanded")) {
+    EXPAND_GALLERY_BTN.innerHTML =
+      'Zwiń <span class="about__button-arrow lnr lnr-arrow-down"></span>';
+  } else {
+    EXPAND_GALLERY_BTN.innerHTML =
+      'Rozwiń <span class="about__button-arrow lnr lnr-arrow-down"></span>';
+  }
+  for (const element of GALLERY_HIDDEN_ELEMENTS) {
+    element.classList.toggle("hidden");
+  }
+  macyInstance.recalculate(true);
+}
+
+EXPAND_GALLERY_BTN.addEventListener("click", expandGallery);
