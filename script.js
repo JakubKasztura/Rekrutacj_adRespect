@@ -12,10 +12,30 @@ const HAMBURGER_CONTAINER = document.querySelector(".nav__hamburger"),
   SEARCH_CONTAINER = document.querySelector(".nav__search-container"),
   SEARCH_LOOP = SEARCH_CONTAINER.querySelector(".lnr-magnifier"),
   SEARCH_INPUT = SEARCH_CONTAINER.querySelector(".nav__input"),
+  HEADER_BUTTONS_CONTAINER = document.querySelector(".hero__buttons-container"),
+  HEADER_BUTTONS = [
+    ...HEADER_BUTTONS_CONTAINER.querySelectorAll("header button"),
+  ],
   GALLERY_CONTAINER = document.querySelector(".realizations__gallery"),
   EXPAND_GALLERY_BTN = document.querySelector(".realizations__btn"),
   GALLERY_OVERLAY = document.querySelector(".realizations__gallery-overlay"),
   GALLERY_HIDDEN_ELEMENTS = [...GALLERY_CONTAINER.querySelectorAll(".hidden")];
+
+//Macy.JS init
+const macyInstance = new Macy({
+  container: ".realizations__gallery",
+  trueOrder: false,
+  waitForImages: false,
+  margin: 20,
+  columns: 3,
+  breakAt: {
+    480: 2,
+    330: 1,
+  },
+});
+
+//SimpleLightbox init
+const lightbox = new SimpleLightbox(".realizations__gallery a", {});
 
 // Hamburger action
 function toggleMenu() {
@@ -32,7 +52,6 @@ function changeHamburger() {
 }
 function initMenu(e) {
   e.stopPropagation();
-  console.log("asds");
   toggleMenu();
   changeHamburger();
   if (!document.querySelector(".blur-active")) {
@@ -56,7 +75,6 @@ function hideMenu(e) {
     removeBlurElement();
     showHideOffer(e, true);
   }
-  console.log("blur");
 }
 function showHideOffer(e, condition) {
   e.stopPropagation();
@@ -69,7 +87,6 @@ function showHideOffer(e, condition) {
     container.classList.remove("active");
   } else {
     container.classList.toggle("active");
-    console.log("offf");
   }
   setTimeout(() => {
     for (const offer of offers) {
@@ -77,17 +94,13 @@ function showHideOffer(e, condition) {
         offer.classList.remove("active");
       } else {
         offer.classList.toggle("active");
-        console.log("offf");
       }
     }
     condition = false;
   }, 200);
-
-  console.log("offer");
 }
 function showSearchBar(e) {
   e.stopPropagation();
-  console.log("looop");
   if (SEARCH_CONTAINER.classList.contains("active")) {
     SEARCH_INPUT.value = "";
   }
@@ -132,28 +145,67 @@ function scrollToConfig(index) {
   });
 }
 
-NAVIGATION_LIST.addEventListener("click", scrollToSection);
-SEARCH_LOOP.addEventListener("click", showSearchBar);
-MENU_OFFER_ELEMENT.addEventListener("click", showHideOffer);
-HAMBURGER_CONTAINER.addEventListener("click", initMenu);
-window.addEventListener("click", hideMenu);
+function headerScrollTo(e) {
+  const navBarOffset = document.querySelector(".nav").offsetHeight;
+  const elementsOffset = [];
+  for (const element of MAIN_ELEMENTS) {
+    elementsOffset.unshift(element.offsetTop);
+  }
+  elementsOffset.splice(-2, 2);
+  if (e.target.tagName === "BUTTON") {
+    const index = HEADER_BUTTONS.indexOf(e.target);
+    window.scrollTo({
+      top: elementsOffset[index] - navBarOffset,
+      left: 0,
+      behavior: "smooth",
+    });
+  }
+}
 
-//Macy.JS init
-const macyInstance = new Macy({
-  container: ".realizations__gallery",
-  trueOrder: false,
-  waitForImages: false,
-  margin: 20,
-  columns: 3,
-  breakAt: {
-    480: 2,
-    330: 1,
-  },
-});
+//Section Offer scroll in
+function offerScrollIn() {
+  const offerElement = document.querySelector(".offer__cards");
+  const offerElementHeight = offerElement.offsetHeight;
+  const scrollPos = window.scrollY;
+  const offerOffsetTop = document.querySelector(".offer").offsetTop;
+  if (
+    window.innerWidth < 1024 &&
+    scrollPos > offerOffsetTop + offerElementHeight / 2 - window.innerHeight
+  ) {
+    offerElement.classList.add("active");
+  }
+  if (
+    scrollPos >
+    offerOffsetTop + offerElementHeight / 2 - window.innerHeight
+  ) {
+    offerElement.classList.add("active");
+  }
+}
+//Section About scroll in
+function aboutScrollIn() {
+  const aboutElements = document.querySelectorAll(".about div");
+  const scrollPos = window.scrollY;
+  const aboutOffsetTop = document.querySelector(".about").offsetTop;
+  const aboutElementHeight = document.querySelector(".about").offsetHeight;
 
-//SimpleLightbox init
-const lightbox = new SimpleLightbox(".realizations__gallery a", {});
-
+  if (
+    window.innerWidth < 1024 &&
+    scrollPos > aboutOffsetTop + aboutElementHeight / 2 - window.innerHeight
+  ) {
+    for (const element of aboutElements) {
+      element.classList.add("active");
+    }
+  }
+  if (
+    scrollPos >
+    aboutOffsetTop + aboutElementHeight / 2 - window.innerHeight
+  ) {
+    for (const element of aboutElements) {
+      element.classList.add("active");
+    }
+  }
+  console.log(scrollPos, aboutOffsetTop, window.innerWidth);
+}
 //Expand gallery
 function expandGallery() {
   GALLERY_OVERLAY.classList.toggle("hide");
@@ -172,3 +224,11 @@ function expandGallery() {
 }
 
 EXPAND_GALLERY_BTN.addEventListener("click", expandGallery);
+NAVIGATION_LIST.addEventListener("click", scrollToSection);
+HEADER_BUTTONS_CONTAINER.addEventListener("click", headerScrollTo);
+SEARCH_LOOP.addEventListener("click", showSearchBar);
+MENU_OFFER_ELEMENT.addEventListener("click", showHideOffer);
+HAMBURGER_CONTAINER.addEventListener("click", initMenu);
+window.addEventListener("click", hideMenu);
+window.addEventListener("scroll", offerScrollIn);
+window.addEventListener("scroll", aboutScrollIn);

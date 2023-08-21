@@ -30,6 +30,8 @@
       @include flexContainer(column, center, flex-start);
       row-gap: 16px;
       color: $darkFont;
+      transition: 1s ease-out;
+      transform: translateX(-110%);
       .card {
         padding: 30px 24px;
         border-radius: 28px;
@@ -43,9 +45,9 @@
           width: 100%;
         }
         &__title {
+          margin: 18px 0 10px;
           font-family: $fontFamilyMont;
           font-weight: 500;
-          margin: 18px 0 10px;
         }
         &__info {
           font-size: 13px;
@@ -75,34 +77,48 @@
         }
       }
     }
+    &__cards.active {
+      transform: translateX(0);
+    }
   }
   .about {
     @include flexContainer(column, center, flex-start);
     color: $lightFont;
+    overflow: hidden;
     &__image-container {
       overflow: hidden;
+      transform: translateX(-110%);
+      transition: 1s ease-out;
       .about__image {
         width: 100%;
         transform: scale(1.03);
       }
     }
+    &__image-container.active {
+      transform: translateX(0);
+    }
     &__info {
       background-color: $basicGreen;
       padding: calc(2 * $mobilePadding) $mobilePadding;
+      transform: translateX(110%);
+      transition: 1s ease-out;
       .about__nav-title {
         color: $lightFont;
       }
       .about__btn {
         @include flexContainer(row, auto, flex-end);
         column-gap: 8px;
-        border: 1px solid $lightFont;
         margin-top: 20px;
+        border: 1px solid $lightFont;
         background-color: transparent;
         color: $lightFont;
         span {
           font-weight: 500;
         }
       }
+    }
+    &__info.active {
+      transform: translateX(0);
     }
   }
   .realizations {
@@ -123,7 +139,6 @@
         }
       }
       .photo-container.hidden {
-        // display: none;
         height: 0;
       }
     }
@@ -146,19 +161,19 @@
       transition: 0.1s;
     }
     &__gallery-overlay.hide {
-      opacity: 0;
       display: none;
+      opacity: 0;
     }
     &__btn {
       position: absolute;
       bottom: 45px;
       left: 50%;
-      transform: translateX(-50%);
       @include flexContainer(row, center, center);
       gap: 5px;
       background-color: $basicGreen;
       color: $lightFont;
       border: 1px solid $basicGreen;
+      transform: translateX(-50%);
       span {
         display: block;
         transition: 0.3s;
@@ -173,7 +188,6 @@
         transform: rotate(180deg);
       }
     }
-    // button need change colors on mobile views !!
   }
   .instagram {
     @include flexContainer(column, center, flex-start);
@@ -185,7 +199,6 @@
     &__info {
       font-family: $fontFamilyMont;
       font-weight: 400;
-      // letter-spacing: 0;
       span {
         font-weight: 500;
         font-style: italic;
@@ -233,7 +246,6 @@
         }
       }
     }
-    //
     .instagram {
       @include flexContainer(row, center, flex-start);
       padding: calc(6 * $mobilePadding) $mobilePadding;
@@ -273,9 +285,9 @@
       }
     }
     .instagram {
+      width: 80%;
       margin-left: auto;
       margin-right: auto;
-      width: 80%;
     }
   }
 }
@@ -291,12 +303,13 @@
     .offer {
       padding-bottom: 120px;
       &__info {
-        margin: 60px auto;
         width: 70%;
+        margin: 60px auto;
       }
       &__cards {
         @include flexContainer(row, center, center);
         gap: 40px;
+        transition: 1.5s ease-out;
         .card {
           width: 27%;
           padding-top: 40px;
@@ -328,8 +341,8 @@
     }
     .realizations {
       &__info {
-        padding: 120px 0 90px;
         width: 80%;
+        padding: 120px 0 90px;
         margin: 0 auto;
       }
       &__btn {
@@ -373,8 +386,8 @@
     .offer {
       padding-bottom: 120px;
       &__info {
-        margin: 94px auto 96px 15%;
         width: 50%;
+        margin: 94px auto 96px 15%;
       }
       &__cards {
         gap: 64px;
@@ -386,9 +399,9 @@
             height: 40px;
           }
           &__title {
-            font-size: 28px;
             margin-top: 32px;
             margin-bottom: 12px;
+            font-size: 28px;
           }
 
           &__button {
@@ -417,10 +430,10 @@
     }
 
     .instagram {
+      justify-content: space-around;
       padding: 120px 110px;
       margin-top: 60px;
       margin-bottom: 36px;
-      justify-content: space-around;
 
       &__info {
         font-size: 40px;
@@ -440,5 +453,3 @@
     }
   }
 }
-
-//MAX WIDTH NA CALOSC!!! zeby zachowac siatke???

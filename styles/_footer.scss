@@ -1,16 +1,14 @@
 .contact {
+  width: 100%;
+  padding: $mobilePadding;
   background-color: $darkFont;
   font-family: $fontFamilyInter;
   color: $lightFont;
-  //   border: 1px solid black;
-  width: 100%;
-  padding: $mobilePadding;
   font-size: 12px;
   &__info {
     @include flexContainer(column, center, center);
     font-size: 16px;
 
-    // border: 1px solid red;
     .contact__logo {
       margin-top: 5px;
       img {
@@ -20,8 +18,8 @@
     .contact__text-container {
       @include flexContainer(column, center, center);
       .contact__text {
-        margin: 10px 0 10px;
         text-align: center;
+        margin: 10px 0 10px;
       }
       .contact__btn {
         background-color: $basicGreen;
@@ -32,7 +30,6 @@
   &__links {
     @include flexContainer(row, space-between, center);
     position: relative;
-    // border: 1px solid blue;
     margin: 20px 0;
 
     &-list {
@@ -64,7 +61,6 @@
     flex-wrap: wrap;
     row-gap: 10px;
     column-gap: 20px;
-    // border: 1px solid green;
     .contact__dev-info {
       @include flexContainer(row, center, center);
     }
@@ -87,9 +83,9 @@
 }
 @media (min-width: $large) {
   .contact {
+    @include flexContainer(column, center, center);
     padding-top: 40px;
     padding-bottom: 40px;
-    @include flexContainer(column, center, center);
     & > div {
       width: 80%;
     }
@@ -101,8 +97,8 @@
       }
     }
     &__links {
-      margin-bottom: 60px;
       padding-top: 30px;
+      margin-bottom: 60px;
       &-list {
         @include flexContainer(row, center, center);
         gap: 30px;
@@ -116,16 +112,16 @@
 }
 @media (min-width: $xLarge) {
   .contact {
-    font-size: 14px;
     padding-top: 80px;
     padding-bottom: 80px;
+    font-size: 14px;
     &__info {
       padding-bottom: 74px;
     }
     &__links {
+      padding-top: 60px;
       margin-top: 0;
       margin-bottom: 120px;
-      padding-top: 60px;
     }
     &__company {
       .contact__dev-info {
