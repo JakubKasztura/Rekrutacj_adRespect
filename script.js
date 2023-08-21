@@ -1,9 +1,14 @@
 const HAMBURGER_CONTAINER = document.querySelector(".nav__hamburger"),
   HAMBURGER_ELEMENTS = [...HAMBURGER_CONTAINER.querySelectorAll("span")],
   NAVIGATION_LIST = document.querySelector(".nav__list"),
+  NAVIGATION_ELEMENTS = [...NAVIGATION_LIST.querySelectorAll(".nav__link")],
   MENU_OFFER_ELEMENT = NAVIGATION_LIST.querySelector(
     ".nav__item:nth-child(1) .nav__link"
   ),
+  MENU_OFFER_ELEMENTS = [
+    ...NAVIGATION_LIST.querySelectorAll(".offer-container div"),
+  ],
+  MAIN_ELEMENTS = [...document.querySelectorAll("section")],
   SEARCH_CONTAINER = document.querySelector(".nav__search-container"),
   SEARCH_LOOP = SEARCH_CONTAINER.querySelector(".lnr-magnifier"),
   SEARCH_INPUT = SEARCH_CONTAINER.querySelector(".nav__input"),
@@ -41,7 +46,7 @@ function initMenu(e) {
 }
 
 function hideMenu(e) {
-  if (window.innerWidth >= 1024) {
+  if (window.innerWidth >= 1200) {
     return;
   }
   e.stopPropagation();
@@ -89,11 +94,50 @@ function showSearchBar(e) {
   SEARCH_INPUT.classList.toggle("active");
   SEARCH_CONTAINER.classList.toggle("active");
 }
+//Menu scrollTo
+function scrollToSection(e) {
+  const index = NAVIGATION_ELEMENTS.indexOf(e.target);
+  if (e.target.tagName === "DIV") {
+    scrollToConfig(0);
+    showHideOffer(e, true);
+  }
+  if (e.target.tagName === "A") {
+    if (index === 1) {
+      scrollToConfig(index);
+    }
+    if (index === 2) {
+      scrollToConfig(index);
+    }
+    if (index === 3) {
+      scrollToConfig(index);
+    }
+  }
+  if (window.innerWidth < 1200) {
+    toggleMenu();
+    changeHamburger();
+    removeBlurElement();
+    showHideOffer(e, true);
+  }
+}
+function scrollToConfig(index) {
+  const navBarOffset = document.querySelector(".nav").offsetHeight;
+  const elementsOffset = [];
+  for (const element of MAIN_ELEMENTS) {
+    elementsOffset.push(element.offsetTop);
+  }
+  window.scrollTo({
+    top: elementsOffset[index] - navBarOffset,
+    left: 0,
+    behavior: "smooth",
+  });
+}
 
+NAVIGATION_LIST.addEventListener("click", scrollToSection);
 SEARCH_LOOP.addEventListener("click", showSearchBar);
 MENU_OFFER_ELEMENT.addEventListener("click", showHideOffer);
 HAMBURGER_CONTAINER.addEventListener("click", initMenu);
 window.addEventListener("click", hideMenu);
+
 //Macy.JS init
 const macyInstance = new Macy({
   container: ".realizations__gallery",
@@ -109,6 +153,7 @@ const macyInstance = new Macy({
 
 //SimpleLightbox init
 const lightbox = new SimpleLightbox(".realizations__gallery a", {});
+
 //Expand gallery
 function expandGallery() {
   GALLERY_OVERLAY.classList.toggle("hide");
